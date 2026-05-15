@@ -1,37 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-
     <title>Scanline Fill</title>
 
     <style>
 
         body{
-            background:#f0f0f0;
+            font-family: Arial;
+            background:#ececec;
             text-align:center;
-            font-family:Arial;
         }
 
         canvas{
-            border:1px solid black;
             background:white;
+            border:1px solid black;
             margin-top:20px;
+        }
+
+        .controls{
+            margin-top:20px;
+        }
+
+        button, select{
+            padding:10px;
+            margin:5px;
+            font-size:16px;
+        }
+
+        #info{
+            margin-top:15px;
+            font-size:18px;
         }
 
     </style>
 </head>
-
 <body>
 
     <h2>Algoritmo Scanline Fill</h2>
 
-    <canvas
-        id="canvas"
-        width="800"
-        height="500">
-    </canvas>
+    <canvas id="canvas" width="800" height="500"></canvas>
+
+    <div class="controls">
+
+        <!-- Selector de polígono -->
+        <select id="polygonSelect">
+
+            <option value="triangle">
+                Triángulo
+            </option>
+
+            <option value="square">
+                Cuadrado
+            </option>
+
+            <option value="pentagon">
+                Pentágono
+            </option>
+
+            <option value="concave">
+                Cóncavo
+            </option>
+
+            <option value="star">
+                Estrella
+            </option>
+
+        </select>
+
+        <!-- Botones -->
+        <button onclick="drawPolygon()">
+            Dibujar
+        </button>
+
+        <button onclick="toggleFill()">
+            Con / Sin relleno
+        </button>
+
+    </div>
+
+    <!-- Información -->
+    <div id="info"></div>
 
     <script src="script.js"></script>
 
